@@ -10,9 +10,9 @@ public class Main {
         }
     }
 
-    public static void getClientOS(String name, int year) {
+    public static void getClientOS(int nameOS, int year) {
         int currentYear = LocalDate.now().getYear();
-        if (name.equals("Android")) {
+        if (nameOS == 1) {
             if (year < currentYear) {
                 System.out.println("Установите облегченную версию приложения для Android по ссылке.");
             } else {
@@ -25,7 +25,7 @@ public class Main {
         }
     }
 
-    public static void deliverTimeCalculation(int distance) {
+    public static int days(int distance) {
         int days = 1;
         if (distance > 20) {
             days++;
@@ -33,11 +33,7 @@ public class Main {
         if (distance > 60) {
             days++;
         }
-        if (distance > 100) {
-            System.out.println("Свыше 100 км доставки нет.");
-        } else {
-            System.out.println("Потребуется дней: " + days);
-        }
+        return days;
     }
 
     public static void main(String[] args) {
@@ -52,7 +48,7 @@ public class Main {
     }
 
     public static void task2() {
-        String clientOS = "Android";
+        int clientOS = 1;
         int clientDeviceYear = 2023;
         getClientOS(clientOS, clientDeviceYear);
     }
@@ -60,6 +56,11 @@ public class Main {
 
     public static void task3() {
         int deliveryDistance = 95;
-        deliverTimeCalculation(deliveryDistance);
+        int deliveryDays = days(deliveryDistance);
+        if (deliveryDistance > 100) {
+            System.out.println("Свыше 100 км доставки нет.");
+        } else {
+            System.out.println("Потребуется дней: " + deliveryDays);
+        }
     }
 }
