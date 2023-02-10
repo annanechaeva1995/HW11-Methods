@@ -12,15 +12,14 @@ public class Main {
 
     public static void getClientOS(int nameOS, int year) {
         int currentYear = LocalDate.now().getYear();
-        if (nameOS == 1) {
-            if (year < currentYear) {
-                System.out.println("Установите облегченную версию приложения для Android по ссылке.");
-            } else {
-                System.out.println("Установите версию приложения для Android по ссылке.");
-            }
-        } else if (year < currentYear) {
+
+        if (nameOS == 1 && year < currentYear) {
+            System.out.println("Установите облегченную версию приложения для Android по ссылке.");
+        } else if (nameOS == 1 && year == currentYear) {
+            System.out.println("Установите версию приложения для Android по ссылке.");
+        } else if (nameOS == 0 && year < currentYear) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке.");
-        } else {
+        } else if (nameOS == 0 && year == currentYear) {
             System.out.println("Установите версию приложения для iOS по ссылке.");
         }
     }
